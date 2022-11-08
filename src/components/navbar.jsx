@@ -48,6 +48,26 @@ export default function NavbarComponent() {
         color='blue-gray'
         className='p-1 font-normal'
       >
+        <Link to={"/my-reviews"} className='flex items-center'>
+          My reviews
+        </Link>
+      </Typography>
+      <Typography
+        as='li'
+        variant='small'
+        color='blue-gray'
+        className='p-1 font-normal'
+      >
+        <Link to={"/add-service"} className='flex items-center'>
+          Add services
+        </Link>
+      </Typography>
+      <Typography
+        as='li'
+        variant='small'
+        color='blue-gray'
+        className='p-1 font-normal'
+      >
         <Link to={"/"} className='flex items-center'>
           Blogs
         </Link>

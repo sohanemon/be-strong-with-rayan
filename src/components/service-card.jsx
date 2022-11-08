@@ -30,7 +30,7 @@ export default function ServiceCard() {
         <Typography className='font-medium text-gray-700' textGradient>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis,
           aut esse. Voluptas...
-          <Tooltip content='Read the service details'>
+          <Tooltip content='Go to service details page'>
             <Button variant='text' className='text-red-500'>
               read more
             </Button>
