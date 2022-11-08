@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <>
       <section id='hero' className='grid grid-cols-2 items-center'>
-        <div className='space-y-7'>
+        <div className='space-y-6'>
           <h1 className='text-7xl font-semibold'>BECOME YOUR STRONGEST SELF</h1>
           <p className='text-red-500 font-semibold'>
             EXCERCISE SMARTER, FEEL BETTER, LIVE LONGER.
