@@ -70,13 +70,14 @@ export default function NavbarComponent() {
           as={Link}
           to='/'
           variant='small'
-          className='mr-4 cursor-pointer py-1.5 font-normal flex items-center gap-2'
+          className='mr-4 cursor-pointer py-1.5 font-normal flex items-center gap-2 font-bebas'
         >
           <img className='w-10 h-10' src='/favicon.ico' alt='' srcset='' />
-          <span className='text-sm font-semibold'>
+          <span className='text-xl tracking-wider font-semibold'>
             Be Strong{" "}
-            <span className='text-lg'>
-              <span className='align-sub text-xs font-normal'>with</span> Rayan
+            <span className=''>
+              <span className='align-sub font-normal font-cursive'>with</span>{" "}
+              Rayan
             </span>
           </span>
         </Typography>

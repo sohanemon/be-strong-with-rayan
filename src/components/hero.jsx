@@ -10,7 +10,10 @@ const Hero = () => {
             EXCERCISE SMARTER, FEEL BETTER, LIVE LONGER.
           </p>
           <p className='text-sm text-gray-600'>
-            Hi, my name is <span className='text-red-500'>Joseph Rayan</span>{" "}
+            Hi, my name is{" "}
+            <span className='text-red-500 font-bebas tracking-wider'>
+              Joseph Rayan
+            </span>{" "}
             and I am a Health & GYM Professional. My training programs will
             enable you to lose those unwanted pounds, gain muscle tone, and
             improve your overall health and appearance. You will be completely
