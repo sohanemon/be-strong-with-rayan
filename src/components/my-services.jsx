@@ -6,10 +6,12 @@ import {
   CardFooter,
   Typography,
   Button,
+  Tooltip,
 } from "@material-tailwind/react";
 import { BsFillStarFill } from "react-icons/bs";
 import "swiper/css";
 import { Heading } from "./heading";
+import { Link } from "react-router-dom";
 const MyServices = () => {
   return (
     <section id='services'>
@@ -51,7 +53,12 @@ function ServiceCard() {
         </Typography>
         <Typography className='font-medium text-gray-700' textGradient>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis,
-          aut esse. Voluptas...<span className='text-red-400'>read more</span>
+          aut esse. Voluptas...
+          <Tooltip content='Read the service details'>
+            <Button variant='text' className='text-red-500'>
+              read more
+            </Button>
+          </Tooltip>
         </Typography>
       </CardBody>
       <CardFooter divider className='flex items-center justify-between py-3'>

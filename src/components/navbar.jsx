@@ -64,7 +64,7 @@ export default function NavbarComponent() {
   );
 
   return (
-    <Navbar className='mx-auto py-2 px-4 lg:px-8 lg:py-4 sticky top-0'>
+    <Navbar className='mx-auto py-2 px-4 lg:px-8 lg:py-4 sticky top-0 z-50'>
       <div className='container mx-auto flex items-center justify-between text-blue-gray-900'>
         <Typography
           as={Link}
@@ -73,7 +73,7 @@ export default function NavbarComponent() {
           className='mr-4 cursor-pointer py-1.5 font-normal flex items-center gap-2 font-bebas'
         >
           <img className='w-10 h-10' src='/favicon.ico' alt='' srcset='' />
-          <span className='text-xl tracking-wider font-semibold'>
+          <span className='text-xl tracking-widest font-semibold'>
             Be Strong{" "}
             <span className=''>
               <span className='align-sub font-normal font-cursive'>with</span>{" "}
