@@ -1,4 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 import {
   Card,
   CardHeader,
@@ -42,10 +44,14 @@ function ServiceCard() {
   return (
     <Card className='w-96'>
       <CardHeader floated={false} className='h-52'>
-        <img
-          src='https://images.unsplash.com/photo-1582439170934-d089aa10abda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fG11c2NsZSUyMG1hbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
-          alt=''
-        />
+        <PhotoProvider>
+          <PhotoView src='https://images.unsplash.com/photo-1582439170934-d089aa10abda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fG11c2NsZSUyMG1hbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'>
+            <img
+              src='https://images.unsplash.com/photo-1582439170934-d089aa10abda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fG11c2NsZSUyMG1hbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
+              alt=''
+            />
+          </PhotoView>
+        </PhotoProvider>
       </CardHeader>
       <CardBody className='text-center'>
         <Typography variant='h4' color='blue-gray' className='mb-2'>

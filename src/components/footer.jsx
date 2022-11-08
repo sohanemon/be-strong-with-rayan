@@ -1,3 +1,5 @@
+import { BsDribbble, BsFacebook, BsTwitter, BsYoutube } from "react-icons/bs";
+
 const Footer = () => {
   return (
     <>
@@ -20,32 +22,26 @@ const Footer = () => {
                 </span>
               </span>
               <h5 className='text-lg mt-0 mb-2 text-gray-600'>
-                Find us on any of these platforms, we respond 1-2 business days.
+                Get connected with me at the social platforms.{" "}
               </h5>
               <div className='mt-6 lg:mb-0 mb-6'>
                 <button
                   className='bg-white text-light-blue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2'
                   type='button'
                 >
-                  <i className='fab fa-twitter' />
+                  <BsTwitter className='w-full h-1/2' />
                 </button>
                 <button
                   className='bg-white text-light-blue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2'
                   type='button'
                 >
-                  <i className='fab fa-facebook-square' />
+                  <BsFacebook className='w-full h-1/2' />
                 </button>
                 <button
                   className='bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2'
                   type='button'
                 >
-                  <i className='fab fa-dribbble' />
-                </button>
-                <button
-                  className='bg-white text-gray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2'
-                  type='button'
-                >
-                  <i className='fab fa-github' />
+                  <BsYoutube className='w-full h-1/2' />
                 </button>
               </div>
             </div>

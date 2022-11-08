@@ -5,7 +5,7 @@ const Experiences = () => {
     <>
       {" "}
       <Heading> My Experiences</Heading>
-      <section id='experiences' className='grid grid-cols-2 gap-16 my-20'>
+      <section id='experiences' className='grid grid-cols-2 gap-24  my-20'>
         <div className='flex flex-col items-center w-56 text-center gap-4 justify-self-end'>
           <h1 className='text-6xl  font-bold'>20</h1>
           <p className='text-gray-800'>Year of Health Coaching Experience</p>
