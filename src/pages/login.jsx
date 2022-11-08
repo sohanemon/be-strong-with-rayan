@@ -3,12 +3,20 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/auth-provider";
 
-const Login = ({ register: reg }) => {
-  const { googleLogin } = useAuth();
+const Login = ({ reg }) => {
+  const { googleLogin, signUp, signIn } = useAuth();
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    if (reg)
+      signUp(data)
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    else
+      signIn(data)
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
   };
+
   const handleGoogleLogin = () => {
     googleLogin()
       .then((res) => console.log(res))
@@ -51,6 +59,26 @@ const Login = ({ register: reg }) => {
                 onSubmit={handleSubmit(onSubmit)}
                 className='mt-10 space-y-8 dark:text-white '
               >
+                {reg && (
+                  <>
+                    <Input
+                      {...register("displayName")}
+                      variant='standard'
+                      label='Name'
+                      color='pink'
+                      type='text'
+                      className='text-base tracking-wider'
+                    />
+                    <Input
+                      {...register("photoURL")}
+                      variant='standard'
+                      label='PhotoURL'
+                      color='pink'
+                      type='text'
+                      className='text-base tracking-wider'
+                    />
+                  </>
+                )}
                 <Input
                   {...register("email")}
                   variant='standard'
@@ -59,7 +87,6 @@ const Login = ({ register: reg }) => {
                   type='email'
                   className='text-base tracking-wider'
                 />
-
                 <div className='flex flex-col items-end'>
                   <Input
                     {...register("password")}
