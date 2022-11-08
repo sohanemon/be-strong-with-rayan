@@ -72,7 +72,6 @@ function ServiceCard() {
           $8/hr
         </Typography>
         <Typography
-          variant=''
           color='gray'
           className='flex gap-1 items-center font-semibold text-xl'
         >
