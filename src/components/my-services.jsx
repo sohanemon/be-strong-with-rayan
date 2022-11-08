@@ -68,7 +68,7 @@ function ServiceCard() {
         </Typography>
       </CardBody>
       <CardFooter divider className='flex items-center justify-between py-3'>
-        <Typography className='font-semibold text-lg tracking-wide'>
+        <Typography className='font-semibold text-base tracking-wide'>
           $8/hr
         </Typography>
         <Typography

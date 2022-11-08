@@ -6,11 +6,13 @@ import {
   Button,
   IconButton,
 } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/auth-provider";
 
 export default function NavbarComponent() {
+  const { user, logOut } = useAuth();
   const [openNav, setOpenNav] = useState(false);
-
+  const navigate = useNavigate();
   useEffect(() => {
     window.addEventListener(
       "resize",
@@ -50,16 +52,6 @@ export default function NavbarComponent() {
           Blogs
         </Link>
       </Typography>
-      <Typography
-        as='li'
-        variant='small'
-        color='blue-gray'
-        className='p-1 font-normal'
-      >
-        <Link to={"/"} className='flex items-center'>
-          Login
-        </Link>
-      </Typography>
     </ul>
   );
 
@@ -88,7 +80,11 @@ export default function NavbarComponent() {
           size='sm'
           className='hidden lg:inline-block'
         >
-          <span>Login</span>
+          {user?.uid ? (
+            <span onClick={logOut}>Logout</span>
+          ) : (
+            <span onClick={() => navigate("/login")}>Login</span>
+          )}
         </Button>
         <IconButton
           variant='text'
@@ -137,7 +133,11 @@ export default function NavbarComponent() {
           fullWidth
           className='mb-2'
         >
-          <span>Login</span>
+          {user?.uid ? (
+            <span onClick={logOut}>Logout</span>
+          ) : (
+            <span onClick={() => navigate("/login")}>Login</span>
+          )}
         </Button>
       </MobileNav>
     </Navbar>

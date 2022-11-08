@@ -1,11 +1,18 @@
 import { Button, Input } from "@material-tailwind/react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { useAuth } from "../contexts/auth-provider";
 
 const Login = ({ register: reg }) => {
+  const { googleLogin } = useAuth();
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     console.log(data);
+  };
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -22,6 +29,7 @@ const Login = ({ register: reg }) => {
               </h3>
               <div className='mt-12 flex flex-wrap sm:grid gap-6 grid-cols-1'>
                 <Button
+                  onClick={handleGoogleLogin}
                   variant='outlined'
                   color='green'
                   className='w-full h-11 rounded-full border border-gray-300/75 bg-white px-6 transition active:bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:hover:bg-gray-800 dark:hover:border-gray-700'
