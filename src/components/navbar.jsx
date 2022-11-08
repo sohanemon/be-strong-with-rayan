@@ -62,7 +62,7 @@ export default function NavbarComponent() {
           as={Link}
           to='/'
           variant='small'
-          className='mr-4 cursor-pointer py-1.5 font-normal flex items-center gap-2 font-bebas'
+          className='mr-4 cursor-pointer py-1.5 font-normal flex items-end gap-2 font-bebas'
         >
           <img className='w-10 h-10' src='/favicon.ico' alt='' />
           <span className='text-xl tracking-widest font-semibold'>
