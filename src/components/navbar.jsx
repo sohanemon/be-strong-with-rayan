@@ -38,7 +38,7 @@ export default function NavbarComponent() {
         color='blue-gray'
         className='p-1 font-normal'
       >
-        <Link to={"/"} className='flex items-center'>
+        <Link to={"/services"} className='flex items-center'>
           Services
         </Link>
       </Typography>
