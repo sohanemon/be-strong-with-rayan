@@ -9,43 +9,57 @@ import {
 } from "@material-tailwind/react";
 import { BsFillStarFill } from "react-icons/bs";
 import { PhotoProvider, PhotoView } from "react-photo-view";
+import { useNavigate } from "react-router-dom";
 
-export default function ServiceCard() {
+export default function ServiceCard({
+  _id,
+  serviceName,
+  serviceFee,
+  serviceImage,
+  serviceDetails,
+  serviceRating,
+}) {
+  const navigate = useNavigate();
   return (
-    <Card className='w-96'>
+    <Card className='w-full'>
       <CardHeader floated={false} className='h-52'>
         <PhotoProvider>
-          <PhotoView src='https://images.unsplash.com/photo-1582439170934-d089aa10abda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fG11c2NsZSUyMG1hbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'>
-            <img
-              src='https://images.unsplash.com/photo-1582439170934-d089aa10abda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fG11c2NsZSUyMG1hbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
-              alt=''
-            />
+          <PhotoView src={serviceImage}>
+            <img src={serviceImage} alt='' />
           </PhotoView>
         </PhotoProvider>
       </CardHeader>
-      <CardBody className='text-center'>
-        <Typography variant='h4' color='blue-gray' className='mb-2'>
-          Nutrition plan
+      <CardBody className='text-center pb-2'>
+        <Typography variant='h5' color='blue-gray' className='mb-2'>
+          {serviceName}
         </Typography>
-        <Typography className='font-medium text-gray-700' textGradient>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis,
-          aut esse. Voluptas...
-          <Tooltip content='Go to service details page'>
-            <Button variant='text' className='text-red-500'>
-              read more
-            </Button>
-          </Tooltip>
+        <Typography
+          variant='h6'
+          className='font-medium text-gray-700 line-clamp-2 text-left'
+          textGradient
+        >
+          {serviceDetails}
         </Typography>
+        <Tooltip content='Go to service details page'>
+          <Button
+            onClick={() => navigate(`/service/${_id}`)}
+            variant='text'
+            className='text-red-500'
+          >
+            read more
+          </Button>
+        </Tooltip>
       </CardBody>
       <CardFooter divider className='flex items-center justify-between py-3'>
         <Typography className='font-semibold text-base tracking-wide'>
-          $8/hr
+          ${serviceFee}
         </Typography>
         <Typography
           color='gray'
           className='flex gap-1 items-center font-semibold text-xl'
         >
-          <BsFillStarFill className='text-base' />5
+          <BsFillStarFill className='text-base' />
+          {serviceRating}
         </Typography>
       </CardFooter>
     </Card>

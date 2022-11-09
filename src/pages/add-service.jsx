@@ -33,7 +33,7 @@ const AddService = () => {
   };
 
   return (
-    <section className='mb-32'>
+    <section>
       <Heading>Add new service</Heading>
       <form
         onSubmit={handleSubmit(onSubmit)}

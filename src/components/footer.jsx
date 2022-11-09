@@ -3,7 +3,7 @@ import { BsDribbble, BsFacebook, BsTwitter, BsYoutube } from "react-icons/bs";
 const Footer = () => {
   return (
     <>
-      <footer className='relative bg-gray-200 pt-8 pb-6'>
+      <footer className='relative bg-gray-200 pt-8 pb-6 mt-32'>
         <div className='container mx-auto px-4'>
           <div className='flex flex-wrap text-left lg:text-left'>
             <div className='w-full lg:w-6/12 px-4'>
