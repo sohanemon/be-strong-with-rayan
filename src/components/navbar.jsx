@@ -147,17 +147,14 @@ export default function NavbarComponent() {
       <MobileNav open={openNav}>
         {navList}
         <Button
+          onClick={() => (user?.uid ? logOut() : navigate("/login"))}
           color='red'
           variant='gradient'
           size='sm'
           fullWidth
           className='mb-2'
         >
-          {user?.uid ? (
-            <span onClick={logOut}>Logout</span>
-          ) : (
-            <span onClick={() => navigate("/login")}>Login</span>
-          )}
+          {user?.uid ? <span>Logout</span> : <span>Login</span>}
         </Button>
       </MobileNav>
     </Navbar>

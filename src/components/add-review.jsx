@@ -6,7 +6,7 @@ import { BsStarFill } from "react-icons/bs";
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/auth-provider";
-const AddReview = ({ _id }) => {
+const AddReview = ({ _id, setRefresh }) => {
   const { user } = useAuth();
   const messageRef = useRef(null);
   const ratingRef = useRef(null);
@@ -25,6 +25,7 @@ const AddReview = ({ _id }) => {
       .then(() => toast.success("Review added"))
       .catch(() => toast.error("Something went wrong"));
     messageRef.current.querySelector("textarea").value = "";
+    setRefresh((p) => p + 1);
   };
 
   return user?.uid ? (

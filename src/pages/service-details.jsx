@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BsStarFill } from "react-icons/bs";
+import Rating from "react-rating";
 import { useParams } from "react-router-dom";
 import AddReview from "../components/add-review";
 import Reviews from "../components/reviews";
 
 const ServiceDetails = () => {
+  const [refresh, setRefresh] = useState(0);
   const { id } = useParams();
   const [service, setService] = useState({});
   useEffect(() => {
@@ -34,13 +36,19 @@ const ServiceDetails = () => {
               Service fee: ${service?.serviceFee}{" "}
             </p>
             <div className='flex items-baseline font-semibold gap-2 text-xl'>
-              <BsStarFill /> {service.serviceRating}
+              <Rating
+                initialRating={service?.serviceRating}
+                readonly
+                className='[&>span]:ml-2 text-xl'
+                fullSymbol={<BsStarFill className='text-red-400' />}
+                emptySymbol={<BsStarFill className='text-gray-400' />}
+              />
             </div>
             <p className='text-gray-700'>{service.serviceDetails}</p>
           </div>
         </section>
-        {service?._id && <Reviews service_id={service._id} />}
-        <AddReview {...service} />
+        {service?._id && <Reviews refresh={refresh} service_id={service._id} />}
+        <AddReview setRefresh={setRefresh} {...service} />
       </>
     )
   );
