@@ -14,9 +14,8 @@ const ServiceDetails = () => {
       .then((res) => setService(res.data))
       .catch((err) => console.log(err));
     return () => {};
-  }, []);
+  }, [id]);
 
-  console.log(service);
   return (
     service && (
       <>
@@ -40,7 +39,7 @@ const ServiceDetails = () => {
             <p className='text-gray-700'>{service.serviceDetails}</p>
           </div>
         </section>
-        <Reviews />
+        {service?._id && <Reviews service_id={service._id} />}
         <AddReview {...service} />
       </>
     )
