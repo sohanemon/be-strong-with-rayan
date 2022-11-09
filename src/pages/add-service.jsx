@@ -11,7 +11,9 @@ import { useForm } from "react-hook-form";
 import { BsStarFill } from "react-icons/bs";
 import { Heading } from "../components/heading";
 import toast from "react-hot-toast";
+import useToTop from "../hooks/use-to-top";
 const AddService = () => {
+  useToTop();
   const select = useRef(null);
   const { register, handleSubmit } = useForm();
   const onSubmit = (data, e) => {

@@ -3,8 +3,10 @@ import { useEffect, useState } from "react";
 import { Heading } from "../components/heading";
 import ReviewCard from "../components/review-card";
 import { useAuth } from "../contexts/auth-provider";
+import useToTop from "../hooks/use-to-top";
 
 const MyReviews = () => {
+  useToTop();
   const { user } = useAuth();
   const [reviews, setReviews] = useState([]);
   useEffect(() => {

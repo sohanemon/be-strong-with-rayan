@@ -1,25 +1,40 @@
 import { Button, Input } from "@material-tailwind/react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/auth-provider";
+import useToTop from "../hooks/use-to-top";
 
 const Login = ({ reg }) => {
+  const { state } = useLocation();
+  const navigate = useNavigate();
+  useToTop();
   const { googleLogin, signUp, signIn } = useAuth();
   const { register, handleSubmit } = useForm();
+  function replaceRoute() {
+    setTimeout(() => {
+      navigate(state || "/", { replace: true });
+    }, 100);
+  }
   const onSubmit = (data) => {
     if (reg)
       signUp(data)
-        .then((res) => console.log(res))
+        .then((res) => {
+          replaceRoute();
+        })
         .catch((err) => console.log(err));
     else
       signIn(data)
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
   };
-
+  console.log(state);
   const handleGoogleLogin = () => {
     googleLogin()
-      .then((res) => console.log(res))
+      .then((res) => {
+        toast.success("Logged in as" + res.displayName);
+        replaceRoute();
+      })
       .catch((err) => console.log(err));
   };
 

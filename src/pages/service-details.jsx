@@ -5,8 +5,10 @@ import Rating from "react-rating";
 import { useParams } from "react-router-dom";
 import AddReview from "../components/add-review";
 import Reviews from "../components/reviews";
+import useToTop from "../hooks/use-to-top";
 
 const ServiceDetails = () => {
+  useToTop();
   const [refresh, setRefresh] = useState(0);
   const { id } = useParams();
   const [service, setService] = useState({});
