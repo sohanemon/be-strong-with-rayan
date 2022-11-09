@@ -2,10 +2,13 @@ import { Button } from "@material-tailwind/react";
 import "react-photo-view/dist/react-photo-view.css";
 import { useNavigate } from "react-router-dom";
 import "swiper/css";
+import useServices from "../hooks/useServices";
 import { Heading } from "./heading";
 import ServiceCard from "./service-card";
 const MyServices = () => {
   const navigate = useNavigate();
+  const services = useServices(3);
+  console.log("🚀 > MyServices > services", services);
   return (
     <section id='services'>
       <Heading> My services</Heading>
