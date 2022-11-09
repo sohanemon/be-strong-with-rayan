@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
   Button,
   Input,
@@ -9,18 +10,30 @@ import { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { BsStarFill } from "react-icons/bs";
 import { Heading } from "../components/heading";
+import toast from "react-hot-toast";
 const AddService = () => {
   const select = useRef(null);
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = (data, e) => {
     data.serviceRating = select.current
       .querySelector("span")
       .getAttribute("value");
     console.log(data);
+    axios
+      .post(`${process.env.REACT_APP_server}/services`, data)
+      .then((res) => {
+        toast.success("Successfully added");
+        console.log(res);
+        e.target.reset();
+      })
+      .catch((err) => {
+        toast.error("Failed to add now");
+        console.log(err);
+      });
   };
 
   return (
-    <section>
+    <section className='mb-32'>
       <Heading>Add new service</Heading>
       <form
         onSubmit={handleSubmit(onSubmit)}
