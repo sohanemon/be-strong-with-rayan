@@ -3,9 +3,11 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/auth-provider";
+import useChangePageTitle from "../hooks/use-change-page-title";
 import useToTop from "../hooks/use-to-top";
 
 const Login = ({ reg }) => {
+  useChangePageTitle("Login/Register");
   const { state } = useLocation();
   const navigate = useNavigate();
   useToTop();

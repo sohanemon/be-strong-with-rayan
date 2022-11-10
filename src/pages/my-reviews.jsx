@@ -4,9 +4,12 @@ import { useEffect, useRef, useState } from "react";
 import { Heading } from "../components/heading";
 import ReviewCard from "../components/review-card";
 import { useAuth } from "../contexts/auth-provider";
+import useChangePageTitle from "../hooks/use-change-page-title";
 import useToTop from "../hooks/use-to-top";
 
 const MyReviews = () => {
+  useChangePageTitle("My Reviews");
+
   useToTop();
   const { user } = useAuth();
   const [reviews, setReviews] = useState([]);

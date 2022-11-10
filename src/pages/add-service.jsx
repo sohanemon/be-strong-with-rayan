@@ -12,8 +12,10 @@ import { BsStarFill } from "react-icons/bs";
 import { Heading } from "../components/heading";
 import toast from "react-hot-toast";
 import useToTop from "../hooks/use-to-top";
+import useChangePageTitle from "../hooks/use-change-page-title";
 const AddService = () => {
   useToTop();
+  useChangePageTitle("Add Service");
   const select = useRef(null);
   const { register, handleSubmit } = useForm();
   const onSubmit = (data, e) => {
