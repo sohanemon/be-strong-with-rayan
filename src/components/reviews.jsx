@@ -1,7 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { BsStarFill } from "react-icons/bs";
-import Rating from "react-rating";
 import { Heading } from "./heading";
 import ReviewCard from "./review-card";
 const Reviews = ({ service_id, refresh }) => {
@@ -13,7 +11,6 @@ const Reviews = ({ service_id, refresh }) => {
       .catch((err) => console.log(err));
     return () => {};
   }, [service_id, refresh]);
-  console.log(reviews);
   return (
     <>
       <Heading>{reviews?.length ? "Recent reviews" : "No review"}</Heading>

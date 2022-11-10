@@ -28,7 +28,6 @@ const Login = ({ reg }) => {
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
   };
-  console.log(state);
   const handleGoogleLogin = () => {
     googleLogin()
       .then((res) => {
