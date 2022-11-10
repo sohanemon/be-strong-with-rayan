@@ -1,18 +1,17 @@
-import { BsStarFill } from "react-icons/bs";
-import Rating from "react-rating";
-import { FiEdit, FiSave } from "react-icons/fi";
-import { useRef, useState } from "react";
 import {
   Button,
   Dialog,
   DialogBody,
   DialogFooter,
   DialogHeader,
-  Input,
   Textarea,
 } from "@material-tailwind/react";
 import axios from "axios";
+import { useRef, useState } from "react";
 import toast from "react-hot-toast";
+import { BsStarFill } from "react-icons/bs";
+import { FiEdit } from "react-icons/fi";
+import Rating from "react-rating";
 export default function ReviewCard({
   edit,
   _id,

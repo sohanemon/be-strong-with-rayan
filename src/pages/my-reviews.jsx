@@ -40,7 +40,7 @@ const MyReviews = () => {
   return (
     <section id='my-reviews'>
       <Heading>My reviews</Heading>
-      <div className='w-max'>
+      <div className='w-max mb-4'>
         <Select
           ref={sortRef}
           onChange={handleSort}

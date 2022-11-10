@@ -44,7 +44,7 @@ const AddReview = ({ _id, setRefresh }) => {
             </div>
           </div>
           <div>
-            <p className='text-right'>Your rating</p>
+            <p className='text-right'>Select your rating</p>
             <Rating
               ref={ratingRef}
               initialRating={3}
