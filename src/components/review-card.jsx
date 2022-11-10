@@ -44,17 +44,18 @@ export default function ReviewCard({
             fullSymbol={<BsStarFill className='text-red-400' />}
             emptySymbol={<BsStarFill className='text-gray-400' />}
           />
-          {edit && !editMode ? (
-            <FiEdit
-              onClick={() => setEditMode(true)}
-              className='text-xl cursor-pointer text-red-500 '
-            />
-          ) : (
-            <FiSave
-              onClick={handleSave}
-              className='text-xl cursor-pointer text-red-500 '
-            />
-          )}
+          {edit &&
+            (!editMode ? (
+              <FiEdit
+                onClick={() => setEditMode(true)}
+                className='text-xl cursor-pointer text-red-500 '
+              />
+            ) : (
+              <FiSave
+                onClick={handleSave}
+                className='text-xl cursor-pointer text-red-500 '
+              />
+            ))}
         </div>
       </div>
       {!editMode ? (

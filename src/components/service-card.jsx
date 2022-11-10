@@ -25,7 +25,7 @@ export default function ServiceCard({
       <CardHeader floated={false} className='h-52'>
         <PhotoProvider>
           <PhotoView src={serviceImage}>
-            <img src={serviceImage} alt='' />
+            <img className='' src={serviceImage} alt='' />
           </PhotoView>
         </PhotoProvider>
       </CardHeader>

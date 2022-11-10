@@ -1,9 +1,9 @@
-import { Fragment, useState } from "react";
 import {
   Accordion,
-  AccordionHeader,
   AccordionBody,
+  AccordionHeader,
 } from "@material-tailwind/react";
+import { useState } from "react";
 import { Heading } from "./heading";
 
 function Icon({ id, open }) {

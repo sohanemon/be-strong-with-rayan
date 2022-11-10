@@ -14,7 +14,7 @@ const useServices = (limit) => {
       .catch((err) => console.log(err));
 
     return () => {};
-  }, []);
+  }, [limit]);
   return services;
 };
 

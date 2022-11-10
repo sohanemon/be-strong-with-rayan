@@ -1,4 +1,4 @@
-import { BsDribbble, BsFacebook, BsTwitter, BsYoutube } from "react-icons/bs";
+import { BsFacebook, BsTwitter, BsYoutube } from "react-icons/bs";
 
 const Footer = () => {
   return (

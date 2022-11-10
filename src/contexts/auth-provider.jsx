@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
   createUserWithEmailAndPassword,
   getAuth,
@@ -19,9 +20,19 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState({});
   useEffect(() => {
     const unSubscriber = onAuthStateChanged(auth, (user) => {
-      if (user) {
+      if (user.uid) {
         setUser(user);
+        console.log(user.email);
         setIsLoading(false);
+        axios.post(
+          `${process.env.REACT_APP_server}/jwt`,
+          {},
+          {
+            headers: {
+              authorization: user.email,
+            },
+          }
+        );
       }
     });
     return () => unSubscriber();
