@@ -5,7 +5,7 @@ import { router } from "./routes/router";
 
 function App() {
   return (
-    <div className='max-w-screen-xl mx-auto font-poppins'>
+    <div className='max-w-screen-xl mx-auto p-4 md:p-0 font-poppins'>
       <Toaster />
       <AuthProvider>
         <RouterProvider router={router} />

@@ -26,14 +26,14 @@ const ServiceDetails = () => {
     <>
       <section
         id='service-details'
-        className='grid grid-cols-2 mt-16 h-[32rem] items-center '
+        className='grid grid-cols-1 md:grid-cols-2 mt-16 md:h-[32rem] items-center '
       >
         <PhotoProvider>
           <PhotoView src={service?.serviceImage}>
             <img
               src={service?.serviceImage}
               alt=''
-              className='rounded-lg shadow-lg h-[32rem] w-5/6 object-cover'
+              className='rounded-lg shadow-lg h-[32rem] w-full mb-5 md:mb-0 md:w-5/6 object-cover'
             />
           </PhotoView>
         </PhotoProvider>

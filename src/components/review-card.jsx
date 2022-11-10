@@ -61,6 +61,7 @@ export default function ReviewCard({
                 className='text-xl cursor-pointer text-red-500 '
               />
               <Dialog
+                className='!max-w-full !w-full  md:!max-w-lg'
                 open={open}
                 handler={handleOpen}
                 animate={{

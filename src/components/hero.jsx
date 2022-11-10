@@ -3,9 +3,14 @@ import { Button } from "@material-tailwind/react";
 const Hero = () => {
   return (
     <>
-      <section id='hero' className='grid grid-cols-2 items-center'>
+      <section
+        id='hero'
+        className='grid grid-cols-1 p-4 md:p-0 md:grid-cols-2 items-center'
+      >
         <div className='space-y-6'>
-          <h1 className='text-7xl font-semibold'>BECOME YOUR STRONGEST SELF</h1>
+          <h1 className='text-5xl md:text-7xl font-semibold'>
+            BECOME YOUR STRONGEST SELF
+          </h1>
           <p className='text-red-500 font-semibold'>
             EXCERCISE SMARTER, FEEL BETTER, LIVE LONGER.
           </p>
