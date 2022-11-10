@@ -13,6 +13,7 @@ const AddReview = ({ _id, setRefresh }) => {
   const handleSubmit = () => {
     const message = messageRef.current.querySelector("textarea").value;
     const rating = ratingRef.current.state.value;
+    setRefresh((p) => p + 1);
     axios
       .post(`${process.env.REACT_APP_server}/review`, {
         photoURL: user?.photoURL,
@@ -25,7 +26,6 @@ const AddReview = ({ _id, setRefresh }) => {
       .then(() => toast.success("Review added"))
       .catch(() => toast.error("Something went wrong"));
     messageRef.current.querySelector("textarea").value = "";
-    setRefresh((p) => p + 1);
   };
 
   return user?.uid ? (
