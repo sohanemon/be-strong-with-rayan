@@ -3,7 +3,8 @@ import {
   AccordionBody,
   AccordionHeader,
 } from "@material-tailwind/react";
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Heading } from "./heading";
 
 function Icon({ id, open }) {
@@ -25,6 +26,14 @@ function Icon({ id, open }) {
 
 export default function AccordionComponent() {
   const [open, setOpen] = useState(0);
+  const [faqs, setFaqs] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_server}/faqs`)
+      .then((res) => setFaqs(res.data));
+
+    return () => {};
+  }, []);
 
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
@@ -33,17 +42,18 @@ export default function AccordionComponent() {
   return (
     <div className='my-40 max-w-2xl mx-auto'>
       <Heading>FAQs</Heading>
-
-      <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
-        <AccordionHeader onClick={() => handleOpen(1)}>
-          What is Material Tailwind?
-        </AccordionHeader>
-        <AccordionBody>
-          We're not always in the position that we want to be at. We're
-          constantly growing. We're constantly making mistakes. We're constantly
-          trying to express ourselves and actualize our dreams.
-        </AccordionBody>
-      </Accordion>
+      {faqs?.map((el, idx) => (
+        <Accordion
+          key={el._id}
+          open={open === el._id}
+          icon={<Icon id={el._id} open={open} />}
+        >
+          <AccordionHeader onClick={() => handleOpen(el._id)}>
+            {el.ques}
+          </AccordionHeader>
+          <AccordionBody>{el.ans}</AccordionBody>
+        </Accordion>
+      ))}
     </div>
   );
 }

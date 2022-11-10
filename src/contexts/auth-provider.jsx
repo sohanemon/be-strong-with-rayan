@@ -22,17 +22,23 @@ const AuthProvider = ({ children }) => {
     const unSubscriber = onAuthStateChanged(auth, (user) => {
       if (user.uid) {
         setUser(user);
-        console.log(user.email);
         setIsLoading(false);
-        axios.post(
-          `${process.env.REACT_APP_server}/jwt`,
-          {},
-          {
-            headers: {
-              authorization: user.email,
-            },
-          }
-        );
+        axios
+          .post(
+            `${process.env.REACT_APP_server}/jwt`,
+            {},
+            {
+              headers: {
+                authorization: user.email,
+              },
+            }
+          )
+          .then((res) =>
+            localStorage.setItem(
+              "be-strong-token",
+              JSON.stringify({ token: res.data })
+            )
+          );
       }
     });
     return () => unSubscriber();

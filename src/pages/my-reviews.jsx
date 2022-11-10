@@ -14,7 +14,12 @@ const MyReviews = () => {
   useEffect(() => {
     axios
       .get(
-        `${process.env.REACT_APP_server}/review?email=${user?.email}&order=${sortingOrder}`
+        `${process.env.REACT_APP_server}/review?email=${user?.email}&order=${sortingOrder}`,
+        {
+          headers: {
+            token: JSON.parse(localStorage.getItem("be-strong-token")).token,
+          },
+        }
       )
       .then((res) => setReviews(res.data))
       .catch((err) => console.log(err));
