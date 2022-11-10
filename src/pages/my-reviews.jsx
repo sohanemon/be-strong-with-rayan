@@ -49,7 +49,7 @@ const MyReviews = () => {
       </div>
       <div className='space-y-7'>
         {reviews?.length ? (
-          reviews?.map((el) => <ReviewCard key={el._id} {...el} />)
+          reviews?.map((el) => <ReviewCard key={el._id} {...el} edit />)
         ) : (
           <>Loading</>
         )}
