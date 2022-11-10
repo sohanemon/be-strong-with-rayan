@@ -12,11 +12,13 @@ import toast from "react-hot-toast";
 import { BsStarFill } from "react-icons/bs";
 import { FiEdit } from "react-icons/fi";
 import Rating from "react-rating";
+import { RiDeleteBin6Line } from "react-icons/ri";
 export default function ReviewCard({
   edit,
   _id,
   photoURL,
   username,
+  updateReviews,
   rating,
   message,
 }) {
@@ -36,6 +38,15 @@ export default function ReviewCard({
         setMessageUpdate(inputRef.current.querySelector("textarea").value);
       })
       .catch((err) => console.log(err));
+  };
+  const handleDelete = () => {
+    const answer = window.confirm("Are you sure?");
+    if (answer) {
+      axios
+        .delete(`${process.env.REACT_APP_server}/review/${_id}`)
+        .then((res) => updateReviews(_id))
+        .catch((err) => console.log(err));
+    }
   };
 
   return (
@@ -92,6 +103,10 @@ export default function ReviewCard({
                   </Button>
                 </DialogFooter>
               </Dialog>
+              <RiDeleteBin6Line
+                onClick={handleDelete}
+                className='text-xl cursor-pointer text-red-500 '
+              />
             </>
           )}
         </div>

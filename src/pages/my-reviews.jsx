@@ -2,11 +2,11 @@ import { Option, Select } from "@material-tailwind/react";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { Heading } from "../components/heading";
+import Loader from "../components/loader";
 import ReviewCard from "../components/review-card";
 import { useAuth } from "../contexts/auth-provider";
 import useChangePageTitle from "../hooks/use-change-page-title";
 import useToTop from "../hooks/use-to-top";
-
 const MyReviews = () => {
   useChangePageTitle("My Reviews");
 
@@ -36,6 +36,9 @@ const MyReviews = () => {
     );
     setReviews([]);
   };
+  const updateReviews = (_id) => {
+    setReviews((p) => p.filter((el) => el._id !== _id));
+  };
 
   return (
     <section id='my-reviews'>
@@ -57,9 +60,16 @@ const MyReviews = () => {
       </div>
       <div className='space-y-7'>
         {reviews?.length ? (
-          reviews?.map((el) => <ReviewCard key={el._id} {...el} edit />)
+          reviews?.map((el) => (
+            <ReviewCard
+              updateReviews={updateReviews}
+              key={el._id}
+              {...el}
+              edit
+            />
+          ))
         ) : (
-          <>Loading</>
+          <Loader />
         )}
       </div>
     </section>

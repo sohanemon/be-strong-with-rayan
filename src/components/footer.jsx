@@ -1,4 +1,5 @@
 import { BsFacebook, BsTwitter, BsYoutube } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -26,22 +27,22 @@ const Footer = () => {
               </h5>
               <div className='mt-6 lg:mb-0 mb-6'>
                 <button
+                  href='/'
                   className='bg-white text-light-blue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2'
-                  type='button'
                 >
-                  <BsTwitter className='w-full h-1/2' />
+                  <a href='https://twitter.com/sohanemon'>
+                    <BsTwitter className='w-full h-1/2' />
+                  </a>
                 </button>
-                <button
-                  className='bg-white text-light-blue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2'
-                  type='button'
-                >
-                  <BsFacebook className='w-full h-1/2' />
+                <button className='bg-white text-light-blue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2'>
+                  <a href='https://facebook.com/msohanemon'>
+                    <BsFacebook className='w-full h-1/2' />
+                  </a>
                 </button>
-                <button
-                  className='bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2'
-                  type='button'
-                >
-                  <BsYoutube className='w-full h-1/2' />
+                <button className='bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2'>
+                  <a href='https://youtube.com/sohanurrahmanemon'>
+                    <BsYoutube className='w-full h-1/2' />
+                  </a>
                 </button>
               </div>
             </div>
@@ -53,35 +54,27 @@ const Footer = () => {
                   </span>
                   <ul className='list-unstyled'>
                     <li>
-                      <a
+                      <Link
                         className='text-gray-600 hover:text-gray-800 font-semibold block pb-2 text-sm'
-                        href='https://www.creative-tim.com/presentation?ref=njs-profile'
+                        to='/services'
                       >
-                        About Us
-                      </a>
+                        Services
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className='text-gray-600 hover:text-gray-800 font-semibold block pb-2 text-sm'
-                        href='https://blog.creative-tim.com?ref=njs-profile'
+                        to='/blogs'
                       >
                         Blog
-                      </a>
+                      </Link>
                     </li>
                     <li>
                       <a
                         className='text-gray-600 hover:text-gray-800 font-semibold block pb-2 text-sm'
-                        href='https://www.github.com/creativetimofficial?ref=njs-profile'
+                        href='https://github.com/sohanemon'
                       >
                         Github
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className='text-gray-600 hover:text-gray-800 font-semibold block pb-2 text-sm'
-                        href='https://www.creative-tim.com/bootstrap-themes/free?ref=njs-profile'
-                      >
-                        Free Products
                       </a>
                     </li>
                   </ul>
@@ -94,7 +87,7 @@ const Footer = () => {
                     <li>
                       <a
                         className='text-gray-600 hover:text-gray-800 font-semibold block pb-2 text-sm'
-                        href='https://creative-tim.com/terms?ref=njs-profile'
+                        href='/'
                       >
                         Terms & Conditions
                       </a>
@@ -102,7 +95,7 @@ const Footer = () => {
                     <li>
                       <a
                         className='text-gray-600 hover:text-gray-800 font-semibold block pb-2 text-sm'
-                        href='https://creative-tim.com/privacy?ref=njs-profile'
+                        href='/'
                       >
                         Privacy Policy
                       </a>
@@ -110,7 +103,7 @@ const Footer = () => {
                     <li>
                       <a
                         className='text-gray-600 hover:text-gray-800 font-semibold block pb-2 text-sm'
-                        href='https://creative-tim.com/contact-us?ref=njs-profile'
+                        href='/'
                       >
                         Contact Us
                       </a>
