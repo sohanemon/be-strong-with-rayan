@@ -20,9 +20,9 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState({});
   useEffect(() => {
     const unSubscriber = onAuthStateChanged(auth, (user) => {
-      if (user.uid) {
+      setIsLoading(false);
+      if (user?.uid) {
         setUser(user);
-        setIsLoading(false);
         axios
           .post(
             `${process.env.REACT_APP_server}/jwt`,
@@ -45,10 +45,12 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const googleLogin = () => {
+    setIsLoading(true);
     const provider = new GoogleAuthProvider();
     return signInWithPopup(auth, provider);
   };
-  const signUp = (data) => {
+  const signUp = async (data) => {
+    setIsLoading(true);
     return createUserWithEmailAndPassword(auth, data.email, data.password).then(
       () => {
         updateProfile(auth.currentUser, {
@@ -59,6 +61,7 @@ const AuthProvider = ({ children }) => {
     );
   };
   const signIn = (data) => {
+    setIsLoading(true);
     return signInWithEmailAndPassword(auth, data.email, data.password);
   };
 

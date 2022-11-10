@@ -2,17 +2,20 @@ import { Button, Input } from "@material-tailwind/react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { BeatLoader } from "react-spinners";
 import { useAuth } from "../contexts/auth-provider";
 import useChangePageTitle from "../hooks/use-change-page-title";
 import useToTop from "../hooks/use-to-top";
 
 const Login = ({ reg }) => {
+  const { isLoading } = useAuth();
   useChangePageTitle("Login/Register");
   const { state } = useLocation();
   const navigate = useNavigate();
   useToTop();
   const { googleLogin, signUp, signIn } = useAuth();
   const { register, handleSubmit } = useForm();
+  console.log(state);
   function replaceRoute() {
     setTimeout(() => {
       navigate(state || "/", { replace: true });
@@ -27,13 +30,13 @@ const Login = ({ reg }) => {
         .catch((err) => console.log(err));
     else
       signIn(data)
-        .then((res) => console.log(res))
+        .then((res) => replaceRoute())
         .catch((err) => console.log(err));
   };
   const handleGoogleLogin = () => {
     googleLogin()
       .then((res) => {
-        toast.success("Logged in as" + res.displayName);
+        toast.success("Logged in successful");
         replaceRoute();
       })
       .catch((err) => console.log(err));
@@ -128,7 +131,11 @@ const Login = ({ reg }) => {
                     className='w-full rounded-full h-11 flex items-center justify-center px-6 py-3 mb-3 transition '
                   >
                     <span className='text-base font-semibold text-white dark:text-gray-900'>
-                      {reg ? "Register" : "Login"}
+                      {isLoading ? (
+                        <BeatLoader color='#fff' size={10} />
+                      ) : (
+                        <>{reg ? "Register" : "Login"}</>
+                      )}
                     </span>
                   </Button>
                   <Link
