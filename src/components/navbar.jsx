@@ -54,16 +54,7 @@ export default function NavbarComponent() {
               My reviews
             </Link>
           </Typography>
-          <Typography
-            as='li'
-            variant='small'
-            color='blue-gray'
-            className='p-1 font-normal'
-          >
-            <Link to={"/add-service"} className='flex items-center'>
-              Add services
-            </Link>
-          </Typography>
+        
         </>
       )}
       <Typography
