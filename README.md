@@ -1,7 +1,5 @@
 # Be strong with Rayan
 
-I provide different types of services by this site. I include different types of services wedding, sports, portrait, event photography etc.
-
 ## Live Link
 
 Hosted in Firebase -> [Be strong with Rayan](https://be-strong-with-rayan.web.app/)
