@@ -2,7 +2,7 @@
 
 ## Live Link
 
-Hosted in Firebase -> [Be strong with Rayan](https://be-strong-with-rayan.web.app/)
+Hosted in Firebase -> [Be strong with Rayan](https://be-strong-with-rayan.web.app)
 
 ## Project Features and Functionality:
 
